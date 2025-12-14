@@ -1,74 +1,40 @@
-# React + TypeScript + Vite
+## README.md: Novacrust Crypto Checkout Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project implements a functional, responsive frontend prototype for a Crypto Checkout experience, based on the provided Novacrust design brief.
 
-Currently, two official plugins are available:
+The focus is on demonstrating proficiency in React/Next.js component structure, state management, UI accuracy, and code quality.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Implemented Flow & Scope
 
-## React Compiler
+I chose to implement two key screens that best showcase complex interactions and form handling:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+### Technical Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  * **Framework:** Next.js (React)
+  * **Language:** TypeScript
+  * **Styling:** [Specify your chosen styling solution here, e.g., Tailwind CSS, Styled Components, or CSS Modules]
+  * **Deployment:** [Specify where you deployed it, e.g., Vercel]
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+To run the project locally:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone [Your Repository URL]
+    cd [repository-name]
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install  # or yarn install
+    ```
+3.  **Run the development server:**
+    ```bash
+    npm run dev  # or yarn dev
+    ```
+    Open http://localhost:5173/ in your browser.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Demo
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# novacrust-frontend-checkout
+  * **Live Demo:** [Insert Vercel/Netlify Demo Link Here]
