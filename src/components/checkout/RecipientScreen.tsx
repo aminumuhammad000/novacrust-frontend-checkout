@@ -132,7 +132,7 @@ export const RecipientScreen: React.FC<RecipientScreenProps> = ({
                                 position: 'absolute',
                                 top: '60px', // Adjusted for shorter input
                                 right: '0',
-                                width: '100%',
+                                width: '280px', // Reduced width as requested
                                 backgroundColor: 'white',
                                 borderRadius: '24px',
                                 boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
