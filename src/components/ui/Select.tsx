@@ -45,7 +45,7 @@ export const Select: React.FC<SelectProps> = ({
 
     const labelStyle: React.CSSProperties = {
         fontWeight: 600,
-        fontSize: '0.95rem',
+        fontSize: '0.8rem',
         color: 'var(--color-text-main)',
     };
 

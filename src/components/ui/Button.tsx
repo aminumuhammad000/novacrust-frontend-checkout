@@ -24,7 +24,7 @@ export const Button: React.FC<ButtonProps> = ({
     alignItems: 'center',
     justifyContent: 'center',
     gap: '8px',
-    height: '60px',
+    height: '48px',
   };
 
   const variants = {

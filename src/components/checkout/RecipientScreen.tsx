@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/Button';
 import type { TransactionData } from './CheckoutFlow';
+import CaretDown from '../../assets/CaretDown.png';
 
 interface RecipientScreenProps {
     data: TransactionData;
@@ -66,13 +67,13 @@ export const RecipientScreen: React.FC<RecipientScreenProps> = ({
                     to { opacity: 1; transform: translateY(0); }
                 }
             `}</style>
-            <div className="flex items-center relative" style={{ justifyContent: 'center', marginBottom: '40px' }}>
+            <div className="flex items-center relative" style={{ justifyContent: 'center', marginBottom: '24px' }}>
                 <button
                     onClick={onBack}
                     style={{
                         padding: 0,
                         position: 'absolute',
-                        left: '64px',
+                        left: '40px', // Adjusted left position since container is smaller
                         background: 'transparent',
                         border: 'none',
                         cursor: 'pointer',
@@ -94,7 +95,7 @@ export const RecipientScreen: React.FC<RecipientScreenProps> = ({
                 }}>Recipient details</h2>
             </div>
 
-            <div className="flex flex-col flex-1" style={{ width: '512px', height: '488px', gap: '32px', margin: '0 auto' }}>
+            <div className="flex flex-col flex-1" style={{ width: '100%', height: 'auto', gap: '20px', margin: '20px auto' }}>
                 {/* Bank Selection */}
                 <div style={{ position: 'relative' }}>
                     <div style={{ fontFamily: 'Outfit', fontWeight: 500, fontSize: '16px', lineHeight: '100%', color: '#013941', marginBottom: '8px' }}>Bank</div>
@@ -102,22 +103,20 @@ export const RecipientScreen: React.FC<RecipientScreenProps> = ({
                         onClick={() => setIsBankDropdownOpen(!isBankDropdownOpen)}
                         style={{
                             border: '1px solid #E5E7EB',
-                            borderRadius: '30px', // Match input style from image
-                            padding: '16px 24px',
+                            borderRadius: '30px',
+                            padding: '0 24px',
                             cursor: 'pointer',
                             backgroundColor: 'white',
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'center',
-                            height: '56px'
+                            height: '52px'
                         }}
                     >
                         <span style={{ color: data.bankName ? '#013941' : '#9CA3AF', fontFamily: 'Outfit', fontWeight: 400, fontSize: '16px' }}>
                             {data.bankName || 'Select an option'}
                         </span>
-                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1.5L6 6.5L11 1.5" stroke="#013941" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        <img src={CaretDown} alt="" style={{ width: '12px', height: 'auto' }} />
                     </div>
 
                     {isBankDropdownOpen && (
@@ -131,7 +130,7 @@ export const RecipientScreen: React.FC<RecipientScreenProps> = ({
                             />
                             <div style={{
                                 position: 'absolute',
-                                top: '70px',
+                                top: '60px', // Adjusted for shorter input
                                 right: '0',
                                 width: '100%',
                                 backgroundColor: 'white',
@@ -209,19 +208,16 @@ export const RecipientScreen: React.FC<RecipientScreenProps> = ({
                         value={data.accountNumber}
                         onChange={(e) => {
                             const val = e.target.value.replace(/\D/g, '').slice(0, 10);
-                            // If user edits, clear the name unless it matches the saved one (simplified: just clear name to force re-verification if changed)
-                            // But if it was a saved recipient, we want to allow them to see it.
-                            // Let's just update the number. The effect will handle clearing name if length < 10.
                             if (val !== data.accountNumber) {
                                 onUpdate({ accountNumber: val, recipientName: '' });
                             }
                         }}
                         style={{
                             width: '100%',
-                            height: '56px',
+                            height: '52px',
                             border: '1px solid #E5E7EB',
                             borderRadius: '30px',
-                            padding: '16px 24px',
+                            padding: '0 24px',
                             fontFamily: 'Outfit',
                             fontSize: '16px',
                             outline: 'none',
@@ -230,15 +226,15 @@ export const RecipientScreen: React.FC<RecipientScreenProps> = ({
                     />
                 </div>
 
-                {/* Account Name Display (Labeled "Account number" per image) */}
+                {/* Account Name Display */}
                 <div>
                     <div style={{ fontFamily: 'Outfit', fontWeight: 500, fontSize: '16px', lineHeight: '100%', color: '#013941', marginBottom: '8px' }}>Account number</div>
                     <div style={{
                         width: '100%',
-                        height: '56px',
-                        backgroundColor: '#F3F4F6', // Grey background
+                        height: '52px',
+                        backgroundColor: '#F3F4F6',
                         borderRadius: '30px',
-                        padding: '16px 24px',
+                        padding: '0 24px',
                         display: 'flex',
                         alignItems: 'center',
                         fontFamily: 'Outfit',
@@ -255,7 +251,7 @@ export const RecipientScreen: React.FC<RecipientScreenProps> = ({
                 </div>
             </div>
 
-            <div style={{ marginTop: '40px' }}>
+            <div style={{ marginTop: '24px' }}>
                 <Button
                     fullWidth
                     onClick={onNext}
@@ -263,15 +259,16 @@ export const RecipientScreen: React.FC<RecipientScreenProps> = ({
                     style={{
                         backgroundColor: '#013941',
                         borderRadius: '30px',
-                        height: '60px',
-                        width: '512px',
-                        padding: '20px 40px',
+                        height: '48px',
+                        width: '100%',
+                        padding: '0 40px',
                         fontSize: '16px',
                         fontWeight: 700,
                         fontFamily: 'Instrument Sans',
                         color: '#E6FBF2',
                         lineHeight: '100%',
-                        letterSpacing: '0%'
+                        letterSpacing: '0%',
+                        border: 'none'
                     }}
                 >
                     Next

@@ -60,9 +60,12 @@ export const CheckoutFlow: React.FC = () => {
         });
     };
 
+    const currentMaxWidth = '500px'; // Both are 500px now
+    const currentHeight = step === 'recipient' ? '520px' : '580px';
+
     return (
-        <div style={{ width: '100%', padding: '20px' }}>
-            <Card>
+        <div style={{ width: '100%', maxWidth: currentMaxWidth, padding: '18px', margin: '0 auto', transition: 'max-width 0.3s ease' }}>
+            <Card maxWidth={currentMaxWidth} height={currentHeight}>
                 {step === 'conversion' && (
                     <ConversionScreen
                         data={data}

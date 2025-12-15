@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '../ui/Button';
 import type { TransactionData } from './CheckoutFlow';
+import CaretDown from '../../assets/CaretDown.png';
 
 interface ConversionScreenProps {
     data: TransactionData;
@@ -145,7 +146,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                             border: 'none',
                             outline: 'none',
                             width: '100%',
-                            fontSize: '1rem',
+                            fontSize: '0.6rem',
                             color: 'var(--color-text-main)'
                         }}
                     />
@@ -203,11 +204,11 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
             `}</style>
 
             {/* Header Tabs */}
-            <div className="flex justify-center" style={{ marginBottom: '40px' }}>
+            <div className="flex justify-center" style={{ marginBottom: '24px' }}>
                 <div style={{
                     backgroundColor: '#F3F4F6',
                     padding: '4px',
-                    borderRadius: '34px', // Fully rounded based on button height + padding
+                    borderRadius: '34px',
                     display: 'flex',
                     gap: '4px',
                     alignItems: 'center'
@@ -215,10 +216,10 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                     <Button
                         variant="primary"
                         style={{
-                            width: '123px',
+                            width: '110px',
                             height: '34px',
-                            borderRadius: '30px',
-                            padding: '8px 16px',
+                            borderRadius: '25px',
+                            padding: '6px 12px',
                             fontSize: '14px',
                             fontWeight: 500,
                             fontFamily: 'Outfit',
@@ -238,11 +239,11 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                     <Button
                         variant="ghost"
                         style={{
-                            width: '123px',
+                            width: '110px',
                             border: 'none',
                             height: '34px',
-                            borderRadius: '30px',
-                            padding: '8px 16px',
+                            borderRadius: '25px',
+                            padding: '6px 12px',
                             fontSize: '14px',
                             color: '#828282',
                             fontWeight: 500,
@@ -260,11 +261,11 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                     <Button
                         variant="ghost"
                         style={{
-                            width: '140px', // Slightly wider for longer text
+                            width: '140px',
                             height: '34px',
                             border: 'none',
-                            borderRadius: '30px',
-                            padding: '8px 16px',
+                            borderRadius: '25px',
+                            padding: '6px 12px',
                             fontSize: '14px',
                             color: '#828282',
                             fontWeight: 500,
@@ -282,12 +283,12 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                 </div>
             </div>
 
-            <div className="flex flex-col flex-1" style={{ width: '512px', height: '488px', gap: '24px', margin: '0 auto' }}>
+            <div className="flex flex-col flex-1" style={{ width: '100%', height: 'auto', gap: '16px', margin: '0 auto' }}>
                 {/* Pay Section */}
                 <div style={{
                     border: '1px solid var(--color-border)',
                     borderRadius: 'var(--radius-lg)',
-                    padding: '16px',
+                    padding: '12px',
                     position: 'relative',
                     zIndex: activeDropdown === 'pay' ? 50 : 1
                 }}>
@@ -299,7 +300,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                             onChange={handleAmountChange}
                             style={{
                                 fontFamily: 'Outfit',
-                                fontSize: '24px',
+                                fontSize: '18px',
                                 fontWeight: 600,
                                 lineHeight: '100%',
                                 letterSpacing: '0%',
@@ -319,7 +320,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: '4px',
-                                fontWeight: 600,
+                                fontWeight: 500,
                                 width: '100px',
                                 height: '36px',
                                 justifyContent: 'center'
@@ -327,7 +328,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                         >
                             <img src={selectedCrypto.icon} alt={selectedCrypto.displayLabel} style={{ width: '20px', height: '20px' }} />
                             {selectedCrypto.displayLabel}
-                            <span>▼</span>
+                            <img src={CaretDown} alt="" style={{ width: '12px', height: 'auto' }} />
                         </div>
                     </div>
                     {activeDropdown === 'pay' && renderDropdown(CRYPTO_OPTIONS, (val) => onUpdate({ payCurrency: val }), 'crypto')}
@@ -337,13 +338,13 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                 <div style={{
                     border: '1px solid var(--color-border)',
                     borderRadius: 'var(--radius-lg)',
-                    padding: '16px',
+                    padding: '12px',
                     position: 'relative',
                     zIndex: activeDropdown === 'receive' ? 50 : 1
                 }}>
                     <div className="text-secondary text-sm mb-2">You receive</div>
                     <div className="flex justify-between items-center">
-                        <div style={{ fontFamily: 'Outfit', fontSize: '24px', fontWeight: 600, lineHeight: '100%', letterSpacing: '0%' }}>{data.receiveAmount}</div>
+                        <div style={{ fontFamily: 'Outfit', fontSize: '18px', fontWeight: 600, lineHeight: '100%', letterSpacing: '0%' }}>{data.receiveAmount}</div>
                         <div
                             onClick={() => setActiveDropdown('receive')}
                             style={{
@@ -353,7 +354,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: '4px',
-                                fontWeight: 600,
+                                fontWeight: 500,
                                 width: '100px',
                                 height: '36px',
                                 justifyContent: 'center',
@@ -361,7 +362,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                             }}>
                             <img src={selectedFiat.icon} alt={selectedFiat.displayLabel} style={{ width: '20px', height: '20px' }} />
                             {selectedFiat.displayLabel}
-                            <span>▼</span>
+                            <img src={CaretDown} alt="" style={{ width: '12px', height: 'auto' }} />
                         </div>
                     </div>
                     {activeDropdown === 'receive' && renderDropdown(FIAT_OPTIONS, (val) => onUpdate({ receiveCurrency: val }), 'fiat')}
@@ -369,14 +370,14 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
 
                 {/* Pay From Section */}
                 <div style={{ position: 'relative', zIndex: activeDropdown === 'wallet' ? 50 : 1 }}>
-                    <div style={{ fontFamily: 'Outfit', fontWeight: 500, fontSize: '16px', lineHeight: '100%', letterSpacing: '0%', marginBottom: '8px' }}>Pay from</div>
+                    <div style={{ fontFamily: 'Outfit', fontWeight: 500, fontSize: '12px', lineHeight: '100%', letterSpacing: '0%', marginBottom: '8px' }}>Pay from</div>
                     <div
                         onClick={() => setActiveDropdown('wallet')}
                         style={{
                             border: '1px solid var(--color-border)',
                             borderRadius: '30px',
                             padding: '0 24px',
-                            height: '60px',
+                            height: '52px',
                             cursor: 'pointer',
                             backgroundColor: '#F9FAFB',
                             display: 'flex',
@@ -385,7 +386,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                         }}
                     >
                         {data.wallet ? (
-                            <span className="flex items-center gap-2" style={{ fontWeight: 600, fontFamily: 'Outfit' }}>
+                            <span className="flex items-center gap-2" style={{ fontWeight: 400, fontFamily: 'Outfit' }}>
                                 {(() => {
                                     const w = WALLET_OPTIONS.find(w => w.id === data.wallet);
                                     if (!w) return 'Select an option';
@@ -404,21 +405,21 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                         ) : (
                             <span className="text-gray-400">Select an option</span>
                         )}
-                        <span>▼</span>
+                        <img src={CaretDown} alt="" style={{ width: '12px', height: 'auto' }} />
                     </div>
                     {activeDropdown === 'wallet' && renderDropdown(WALLET_OPTIONS, (val) => onUpdate({ wallet: val }), 'wallet')}
                 </div>
 
                 {/* Pay To Section */}
                 <div style={{ position: 'relative', zIndex: activeDropdown === 'recipient' ? 50 : 1 }}>
-                    <div style={{ fontFamily: 'Outfit', fontWeight: 500, fontSize: '16px', lineHeight: '100%', letterSpacing: '0%', marginBottom: '8px' }}>Pay to</div>
+                    <div style={{ fontFamily: 'Outfit', fontWeight: 500, fontSize: '12px', lineHeight: '100%', letterSpacing: '0%', marginBottom: '8px' }}>Pay to</div>
                     <div
                         onClick={() => setActiveDropdown('recipient')}
                         style={{
                             border: '1px solid var(--color-border)',
                             borderRadius: '30px',
                             padding: '0 24px',
-                            height: '60px',
+                            height: '48px',
                             cursor: 'pointer',
                             backgroundColor: '#F9FAFB',
                             display: 'flex',
@@ -427,7 +428,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                         }}
                     >
                         {data.recipientName ? (
-                            <span className="flex items-center gap-2" style={{ fontWeight: 600, fontFamily: 'Outfit' }}>
+                            <span className="flex items-center gap-2" style={{ fontWeight: 400, fontFamily: 'Outfit' }}>
                                 {(() => {
                                     // Find by name since we store the name in data.recipientName
                                     const r = RECIPIENT_OPTIONS.find(r => r.name === data.recipientName) || { name: data.recipientName, icon: '👤', id: 'custom' };
@@ -446,7 +447,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                         ) : (
                             <span className="text-gray-400">Select an option</span>
                         )}
-                        <span>▼</span>
+                        <img src={CaretDown} alt="" style={{ width: '12px', height: 'auto' }} />
                     </div>
                     {activeDropdown === 'recipient' && renderDropdown(RECIPIENT_OPTIONS, (val) => {
                         const selected = RECIPIENT_OPTIONS.find(r => r.id === val);
@@ -465,7 +466,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                 </div>
             </div>
 
-            <div style={{ marginTop: '0px' }}>
+            <div style={{ marginTop: '24px' }}>
                 <Button
                     fullWidth
                     onClick={onNext}
