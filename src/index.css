@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
   --color-primary: #013941;
@@ -30,7 +30,7 @@
 body {
   font-family: var(--font-family);
   color: var(--color-text-main);
-  background-color: #F3F4F6;
+  background-color: #FFFFFF;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;

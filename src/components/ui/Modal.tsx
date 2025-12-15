@@ -5,13 +5,15 @@ interface ModalProps {
     onClose: () => void;
     title?: string;
     children: React.ReactNode;
+    variant?: 'default' | 'custom';
 }
 
 export const Modal: React.FC<ModalProps> = ({
     isOpen,
     onClose,
     title,
-    children
+    children,
+    variant = 'default'
 }) => {
     useEffect(() => {
         if (isOpen) {
@@ -40,7 +42,7 @@ export const Modal: React.FC<ModalProps> = ({
         padding: '16px',
     };
 
-    const contentStyle: React.CSSProperties = {
+    const defaultContentStyle: React.CSSProperties = {
         backgroundColor: 'var(--color-white)',
         borderRadius: 'var(--radius-lg)',
         width: '100%',
@@ -52,6 +54,17 @@ export const Modal: React.FC<ModalProps> = ({
         position: 'relative',
         animation: 'slideUp 0.3s ease-out',
     };
+
+    const customContentStyle: React.CSSProperties = {
+        position: 'relative',
+        animation: 'slideUp 0.3s ease-out',
+        maxHeight: '90vh', // Prevent touching edges
+        width: 'auto',
+        maxWidth: '90vw',
+        overflow: 'visible', // Allow content to determine size, avoid scrollbars if possible
+    };
+
+    const contentStyle = variant === 'custom' ? customContentStyle : defaultContentStyle;
 
     return (
         <div style={overlayStyle} onClick={onClose}>

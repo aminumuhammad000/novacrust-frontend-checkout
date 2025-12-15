@@ -3,7 +3,7 @@ import { Card } from '../ui/Card';
 import { Modal } from '../ui/Modal';
 import { ConversionScreen } from './ConversionScreen';
 import { RecipientScreen } from './RecipientScreen';
-import { SuccessScreen } from './SuccessScreen';
+import { SuccessWidget } from './SuccessWidget';
 
 export type CheckoutStep = 'conversion' | 'recipient';
 
@@ -83,8 +83,9 @@ export const CheckoutFlow: React.FC = () => {
             <Modal
                 isOpen={isSuccessOpen}
                 onClose={() => { }} // Prevent closing by clicking outside if desired, or handleReset
+                variant="custom"
             >
-                <SuccessScreen onHome={handleReset} />
+                <SuccessWidget onHome={handleReset} />
             </Modal>
         </div>
     );
