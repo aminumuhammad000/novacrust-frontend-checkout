@@ -156,7 +156,7 @@ export const ConversionScreen: React.FC<ConversionScreenProps> = ({
                             border: 'none',
                             outline: 'none',
                             width: '100%',
-                            fontSize: '0.6rem',
+                            fontSize: '1rem',
                             color: 'var(--color-text-main)'
                         }}
                     />

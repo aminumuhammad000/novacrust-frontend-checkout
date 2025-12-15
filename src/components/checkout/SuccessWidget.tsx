@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logoImg from '../../assets/NC_BlackTrans_BG.png';
+// import logoImg from '../../assets/NC_BlackTrans_BG.png';
 import checkCircleImg from '../../assets/CheckCircle.png';
 
 interface SuccessScreenProps {
@@ -8,6 +8,7 @@ interface SuccessScreenProps {
 
 export const SuccessWidget: React.FC<SuccessScreenProps> = ({ onHome }) => {
     const [copied, setCopied] = useState(false);
+    const logoImg = '/NC_BlackTrans_BG.png';
 
     const handleCopy = async () => {
         try {
